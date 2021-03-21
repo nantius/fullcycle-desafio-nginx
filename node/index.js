@@ -17,7 +17,7 @@ app.get('/', async (req,res) => {
         connection.query(sql , () => {
             const sql = `SELECT * from people;`;
             connection.query(sql, (error, results, fields) => {
-                let html = '<h1>Full Cycle</h1><ul>';
+                let html = '<h1>Full Cycle Rocks!</h1><ul>';
                 results.forEach(person => {
                     html += `<li>${person.name}</li>`;
                 });
