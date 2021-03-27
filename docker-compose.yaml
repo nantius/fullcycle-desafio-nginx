@@ -12,6 +12,7 @@ services:
       - node-network
     volumes: 
       - ./node:/usr/src/app
+      - ./usr/src/app/node_modules
     tty: true
     ports: 
       - "3000:3000"
@@ -36,9 +37,7 @@ services:
     build: 
       context: ./nginx
       dockerfile: Dockerfile-nginx
-    image: spdleonardo/nginx-node
     container_name: nginx
-    entrypoint: dockerize -wait tcp://app:3000 -timeout 20s nginx -g "daemon off";
     networks: 
       - node-network
     ports: 
